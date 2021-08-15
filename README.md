@@ -2,10 +2,8 @@
 
 Proyecto de reto - [DESCARGAR DEMO](https://drive.google.com/drive/folders/180jt-TSqPQElNoHVzL3pRDzG1T1nJypI?usp=sharing)
 
-<img src="assets/capture_1.png" alt="drawing" width="200"/>
-
-![drawing](assets/capture_1.png "code")
-![drawing](assets/capture_2.png "code")
+<img src="assets/capture_1.png" alt="drawing" width="300"/>
+<img src="assets/capture_2.png" alt="drawing" width="300"/>
 
 ## Comenzando 🚀
 
