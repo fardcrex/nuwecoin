@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_wall_layout/flutter_wall_layout.dart';
 import 'package:nuwecoin/features/crypto/domain/dto/crypto.dart';
@@ -22,59 +24,64 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: SafeArea(
-        child: OrientationBuilder(builder: (context, orientation) {
-          final isPortrait = orientation == Orientation.portrait;
-          return Column(
-            children: [
-              SizedBox(
-                height: 4,
-                child: widget.isReload ? const LinearProgressIndicator(color: Colors.white) : null,
-              ),
-              if (isPortrait)
-                InputForm(
-                  textController: controller,
-                  initialText: '',
-                  hintText: 'Buscar stocks o cryptos',
-                  textInputAction: TextInputAction.search,
-                  onChanged: (_) => setState(() {}),
-                ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    if (!isPortrait)
-                      InputForm(
-                        textController: controller,
-                        initialText: '',
-                        hintText: 'Buscar stocks o cryptos',
-                        textInputAction: TextInputAction.search,
-                        onChanged: (_) => setState(() {}),
-                      ),
-                    Text('Stock del momento', style: style),
-                    OutlinedButton(
-                      onPressed: !widget.isReload
-                          ? () {
-                              FocusScope.of(context).unfocus();
-                              widget.onReload();
-                            }
-                          : null,
-                      child: const Text('Refresh'),
-                    )
-                  ],
-                ),
-              ),
-              Expanded(
-                child: WallLayout(
-                  stones: _buildStonesList(),
-                  layersCount: isPortrait ? 5 : 8,
-                  //    scrollDirection: Axis.vertical,
-                ),
-              ),
-            ],
-          );
-        }),
+      body: Center(
+        child: SizedBox(
+          width: min(1000, MediaQuery.of(context).size.longestSide),
+          child: SafeArea(
+            child: OrientationBuilder(builder: (context, orientation) {
+              final isPortrait = orientation == Orientation.portrait;
+              return Column(
+                children: [
+                  SizedBox(
+                    height: 4,
+                    child: widget.isReload ? const LinearProgressIndicator(color: Colors.white) : null,
+                  ),
+                  if (isPortrait)
+                    InputForm(
+                      textController: controller,
+                      initialText: '',
+                      hintText: 'Buscar stocks o cryptos',
+                      textInputAction: TextInputAction.search,
+                      onChanged: (_) => setState(() {}),
+                    ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        if (!isPortrait)
+                          InputForm(
+                            textController: controller,
+                            initialText: '',
+                            hintText: 'Buscar stocks o cryptos',
+                            textInputAction: TextInputAction.search,
+                            onChanged: (_) => setState(() {}),
+                          ),
+                        Text('Stock del momento', style: style),
+                        OutlinedButton(
+                          onPressed: !widget.isReload
+                              ? () {
+                                  FocusScope.of(context).unfocus();
+                                  widget.onReload();
+                                }
+                              : null,
+                          child: const Text('Refresh'),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: WallLayout(
+                      stones: _buildStonesList(),
+                      layersCount: isPortrait ? 5 : 8,
+                      //    scrollDirection: Axis.vertical,
+                    ),
+                  ),
+                ],
+              );
+            }),
+          ),
+        ),
       ),
     );
   }
