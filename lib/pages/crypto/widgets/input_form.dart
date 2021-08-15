@@ -30,7 +30,7 @@ class InputForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: min(350, MediaQuery.of(context).size.width * 0.98),
+      width: min(320, MediaQuery.of(context).size.width * 0.98),
       decoration: BoxDecoration(
         //   color: Theme.of(context).primaryColor,
         border: Border.all(color: canShowError ? Theme.of(context).errorColor : Colors.white),
