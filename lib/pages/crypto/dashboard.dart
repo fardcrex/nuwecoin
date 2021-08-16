@@ -22,64 +22,55 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
+    final input = InputForm(
+      textController: controller,
+      initialText: '',
+      hintText: 'Buscar stocks o cryptos',
+      textInputAction: TextInputAction.search,
+      onChanged: (_) => setState(() {}),
+    );
+    final isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: SizedBox(
-          width: min(1000, MediaQuery.of(context).size.longestSide),
+          //  width: min(1000, MediaQuery.of(context).size.longestSide),
           child: SafeArea(
-            child: OrientationBuilder(builder: (context, orientation) {
-              final isPortrait = orientation == Orientation.portrait;
-              return Column(
-                children: [
-                  SizedBox(
-                    height: 4,
-                    child: widget.isReload ? const LinearProgressIndicator(color: Colors.white) : null,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 4,
+                  child: widget.isReload ? const LinearProgressIndicator(color: Colors.white) : null,
+                ),
+                if (isPortrait) input,
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      if (!isPortrait) input,
+                      Text('Stock del momento', style: style),
+                      OutlinedButton(
+                        onPressed: !widget.isReload
+                            ? () {
+                                FocusScope.of(context).unfocus();
+                                widget.onReload();
+                              }
+                            : null,
+                        child: const Text('Refresh'),
+                      )
+                    ],
                   ),
-                  if (isPortrait)
-                    InputForm(
-                      textController: controller,
-                      initialText: '',
-                      hintText: 'Buscar stocks o cryptos',
-                      textInputAction: TextInputAction.search,
-                      onChanged: (_) => setState(() {}),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        if (!isPortrait)
-                          InputForm(
-                            textController: controller,
-                            initialText: '',
-                            hintText: 'Buscar stocks o cryptos',
-                            textInputAction: TextInputAction.search,
-                            onChanged: (_) => setState(() {}),
-                          ),
-                        Text('Stock del momento', style: style),
-                        OutlinedButton(
-                          onPressed: !widget.isReload
-                              ? () {
-                                  FocusScope.of(context).unfocus();
-                                  widget.onReload();
-                                }
-                              : null,
-                          child: const Text('Refresh'),
-                        )
-                      ],
-                    ),
+                ),
+                Expanded(
+                  child: WallLayout(
+                    stones: _buildStonesList(),
+                    layersCount: isPortrait ? 5 : 8,
+                    //    scrollDirection: Axis.vertical,
                   ),
-                  Expanded(
-                    child: WallLayout(
-                      stones: _buildStonesList(),
-                      layersCount: isPortrait ? 5 : 8,
-                      //    scrollDirection: Axis.vertical,
-                    ),
-                  ),
-                ],
-              );
-            }),
+                ),
+              ],
+            ),
           ),
         ),
       ),
