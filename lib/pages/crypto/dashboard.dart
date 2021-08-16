@@ -34,7 +34,7 @@ class _DashboardPageState extends State<DashboardPage> {
       backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: SizedBox(
-          //  width: min(1000, MediaQuery.of(context).size.longestSide),
+          width: min(1000, MediaQuery.of(context).size.longestSide),
           child: SafeArea(
             child: Column(
               children: [
