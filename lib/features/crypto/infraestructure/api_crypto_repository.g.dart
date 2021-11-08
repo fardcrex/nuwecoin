@@ -19,10 +19,11 @@ class _RestClient implements RestClient {
   Future<List<Crypto>> getCryptos() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(_setStreamType<
         List<Crypto>>(Options(
-            method: 'GET', headers: <String, dynamic>{}, extra: _extra)
+            method: 'GET', headers: _headers, extra: _extra)
         .compose(_dio.options,
             '/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false',
             queryParameters: queryParameters, data: _data)

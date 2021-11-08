@@ -1,4 +1,5 @@
 import 'dart:convert';
+// ignore_for_file: leading_newlines_in_multiline_strings
 
 import 'package:nuwecoin/features/crypto/domain/dto/crypto.dart';
 import 'package:nuwecoin/features/crypto/domain/failures.dart';

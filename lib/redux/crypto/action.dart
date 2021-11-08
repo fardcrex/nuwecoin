@@ -10,17 +10,14 @@ class GetCryptosAction {
 }
 
 class SetCryptosAction {
-  final ListValue<BuiltList<Crypto>, CryptoFailure> cryptosState;
+  final ListState<Crypto, CryptoFailure> cryptosState;
 
   const SetCryptosAction(this.cryptosState);
 
-  factory SetCryptosAction.fromResult(
-    Result<BuiltList<Crypto>, CryptoFailure> result, {
-    ListValue<BuiltList<Crypto>, CryptoFailure>? prevState,
-  }) {
+  factory SetCryptosAction.fromResult(Result<BuiltList<Crypto>, CryptoFailure> result) {
     return SetCryptosAction(result.when(
-      ok: (cryptos) => cryptos.isEmpty ? const ListValue.empty() : ListValue(cryptos),
-      err: (fail) => prevState?.mapOrNull(returnState, empty: returnState) ?? ListValue.error(fail),
+      ok: (cryptos) => cryptos.isEmpty ? const ListState.empty() : ListState(cryptos),
+      err: (fail) => ListState.error(fail),
     ));
   }
 
@@ -29,9 +26,14 @@ class SetCryptosAction {
 
 class ChangeIsReloadAction {
   final bool isReload;
+  final Option<Result<Unit, CryptoFailure>> successOrFailureOption;
   // const ChangeIsReloadAction({required this.isReload});
-  const ChangeIsReloadAction.toIsReload() : isReload = true;
-  const ChangeIsReloadAction.toIsNotReload() : isReload = false;
+  const ChangeIsReloadAction.toIsReload()
+      : isReload = true,
+        successOrFailureOption = const None();
+  ChangeIsReloadAction.toIsNotReload({required Result<BuiltList<Crypto>, CryptoFailure> successOrFailure})
+      : isReload = false,
+        successOrFailureOption = Option.from(successOrFailure.map((_) => unit));
 }
 
 class ReloadCryptosAction {

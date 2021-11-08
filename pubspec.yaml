@@ -1,3 +1,4 @@
+# ignore_for_file: sort_pub_dependencies
 name: nuwecoin
 description: A new Flutter project.
 

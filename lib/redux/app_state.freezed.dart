@@ -17,12 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call(
-      {required ListValue<BuiltList<Crypto>, CryptoFailure> cryptosState,
-      required bool isReload}) {
+  _AppState call({required CriptoState cryptoState}) {
     return _AppState(
-      cryptosState: cryptosState,
-      isReload: isReload,
+      cryptoState: cryptoState,
     );
   }
 }
@@ -32,9 +29,7 @@ const $AppState = _$AppStateTearOff();
 
 /// @nodoc
 mixin _$AppState {
-  ListValue<BuiltList<Crypto>, CryptoFailure> get cryptosState =>
-      throw _privateConstructorUsedError;
-  bool get isReload => throw _privateConstructorUsedError;
+  CriptoState get cryptoState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -45,11 +40,9 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call(
-      {ListValue<BuiltList<Crypto>, CryptoFailure> cryptosState,
-      bool isReload});
+  $Res call({CriptoState cryptoState});
 
-  $ListValueCopyWith<BuiltList<Crypto>, CryptoFailure, $Res> get cryptosState;
+  $CriptoStateCopyWith<$Res> get cryptoState;
 }
 
 /// @nodoc
@@ -62,26 +55,20 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? cryptosState = freezed,
-    Object? isReload = freezed,
+    Object? cryptoState = freezed,
   }) {
     return _then(_value.copyWith(
-      cryptosState: cryptosState == freezed
-          ? _value.cryptosState
-          : cryptosState // ignore: cast_nullable_to_non_nullable
-              as ListValue<BuiltList<Crypto>, CryptoFailure>,
-      isReload: isReload == freezed
-          ? _value.isReload
-          : isReload // ignore: cast_nullable_to_non_nullable
-              as bool,
+      cryptoState: cryptoState == freezed
+          ? _value.cryptoState
+          : cryptoState // ignore: cast_nullable_to_non_nullable
+              as CriptoState,
     ));
   }
 
   @override
-  $ListValueCopyWith<BuiltList<Crypto>, CryptoFailure, $Res> get cryptosState {
-    return $ListValueCopyWith<BuiltList<Crypto>, CryptoFailure, $Res>(
-        _value.cryptosState, (value) {
-      return _then(_value.copyWith(cryptosState: value));
+  $CriptoStateCopyWith<$Res> get cryptoState {
+    return $CriptoStateCopyWith<$Res>(_value.cryptoState, (value) {
+      return _then(_value.copyWith(cryptoState: value));
     });
   }
 }
@@ -91,12 +78,10 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {ListValue<BuiltList<Crypto>, CryptoFailure> cryptosState,
-      bool isReload});
+  $Res call({CriptoState cryptoState});
 
   @override
-  $ListValueCopyWith<BuiltList<Crypto>, CryptoFailure, $Res> get cryptosState;
+  $CriptoStateCopyWith<$Res> get cryptoState;
 }
 
 /// @nodoc
@@ -110,18 +95,13 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? cryptosState = freezed,
-    Object? isReload = freezed,
+    Object? cryptoState = freezed,
   }) {
     return _then(_AppState(
-      cryptosState: cryptosState == freezed
-          ? _value.cryptosState
-          : cryptosState // ignore: cast_nullable_to_non_nullable
-              as ListValue<BuiltList<Crypto>, CryptoFailure>,
-      isReload: isReload == freezed
-          ? _value.isReload
-          : isReload // ignore: cast_nullable_to_non_nullable
-              as bool,
+      cryptoState: cryptoState == freezed
+          ? _value.cryptoState
+          : cryptoState // ignore: cast_nullable_to_non_nullable
+              as CriptoState,
     ));
   }
 }
@@ -129,16 +109,14 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({required this.cryptosState, required this.isReload});
+  const _$_AppState({required this.cryptoState});
 
   @override
-  final ListValue<BuiltList<Crypto>, CryptoFailure> cryptosState;
-  @override
-  final bool isReload;
+  final CriptoState cryptoState;
 
   @override
   String toString() {
-    return 'AppState(cryptosState: $cryptosState, isReload: $isReload)';
+    return 'AppState(cryptoState: $cryptoState)';
   }
 
   @override
@@ -146,14 +124,12 @@ class _$_AppState implements _AppState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppState &&
-            (identical(other.cryptosState, cryptosState) ||
-                other.cryptosState == cryptosState) &&
-            (identical(other.isReload, isReload) ||
-                other.isReload == isReload));
+            (identical(other.cryptoState, cryptoState) ||
+                other.cryptoState == cryptoState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cryptosState, isReload);
+  int get hashCode => Object.hash(runtimeType, cryptoState);
 
   @JsonKey(ignore: true)
   @override
@@ -162,14 +138,10 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState(
-      {required ListValue<BuiltList<Crypto>, CryptoFailure> cryptosState,
-      required bool isReload}) = _$_AppState;
+  const factory _AppState({required CriptoState cryptoState}) = _$_AppState;
 
   @override
-  ListValue<BuiltList<Crypto>, CryptoFailure> get cryptosState;
-  @override
-  bool get isReload;
+  CriptoState get cryptoState;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>
@@ -177,24 +149,24 @@ abstract class _AppState implements AppState {
 }
 
 /// @nodoc
-class _$ListValueTearOff {
-  const _$ListValueTearOff();
+class _$ListStateTearOff {
+  const _$ListStateTearOff();
 
-  Data<T, F> call<T extends BuiltList<dynamic>, F>(T value) {
+  Data<T, F> call<T, F>(BuiltList<T> value) {
     return Data<T, F>(
       value,
     );
   }
 
-  Loading<T, F> loading<T extends BuiltList<dynamic>, F>() {
+  Loading<T, F> loading<T, F>() {
     return Loading<T, F>();
   }
 
-  Empty<T, F> empty<T extends BuiltList<dynamic>, F>() {
+  Empty<T, F> empty<T, F>() {
     return Empty<T, F>();
   }
 
-  ErrorDetails<T, F> error<T extends BuiltList<dynamic>, F>(F err) {
+  ErrorDetails<T, F> error<T, F>(F err) {
     return ErrorDetails<T, F>(
       err,
     );
@@ -202,13 +174,13 @@ class _$ListValueTearOff {
 }
 
 /// @nodoc
-const $ListValue = _$ListValueTearOff();
+const $ListState = _$ListStateTearOff();
 
 /// @nodoc
-mixin _$ListValue<T extends BuiltList<dynamic>, F> {
+mixin _$ListState<T, F> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
+    TResult Function(BuiltList<T> value) $default, {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function(F err) error,
@@ -216,7 +188,7 @@ mixin _$ListValue<T extends BuiltList<dynamic>, F> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -224,7 +196,7 @@ mixin _$ListValue<T extends BuiltList<dynamic>, F> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -259,32 +231,31 @@ mixin _$ListValue<T extends BuiltList<dynamic>, F> {
 }
 
 /// @nodoc
-abstract class $ListValueCopyWith<T extends BuiltList<dynamic>, F, $Res> {
-  factory $ListValueCopyWith(
-          ListValue<T, F> value, $Res Function(ListValue<T, F>) then) =
-      _$ListValueCopyWithImpl<T, F, $Res>;
+abstract class $ListStateCopyWith<T, F, $Res> {
+  factory $ListStateCopyWith(
+          ListState<T, F> value, $Res Function(ListState<T, F>) then) =
+      _$ListStateCopyWithImpl<T, F, $Res>;
 }
 
 /// @nodoc
-class _$ListValueCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
-    implements $ListValueCopyWith<T, F, $Res> {
-  _$ListValueCopyWithImpl(this._value, this._then);
+class _$ListStateCopyWithImpl<T, F, $Res>
+    implements $ListStateCopyWith<T, F, $Res> {
+  _$ListStateCopyWithImpl(this._value, this._then);
 
-  final ListValue<T, F> _value;
+  final ListState<T, F> _value;
   // ignore: unused_field
-  final $Res Function(ListValue<T, F>) _then;
+  final $Res Function(ListState<T, F>) _then;
 }
 
 /// @nodoc
-abstract class $DataCopyWith<T extends BuiltList<dynamic>, F, $Res> {
+abstract class $DataCopyWith<T, F, $Res> {
   factory $DataCopyWith(Data<T, F> value, $Res Function(Data<T, F>) then) =
       _$DataCopyWithImpl<T, F, $Res>;
-  $Res call({T value});
+  $Res call({BuiltList<T> value});
 }
 
 /// @nodoc
-class _$DataCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
-    extends _$ListValueCopyWithImpl<T, F, $Res>
+class _$DataCopyWithImpl<T, F, $Res> extends _$ListStateCopyWithImpl<T, F, $Res>
     implements $DataCopyWith<T, F, $Res> {
   _$DataCopyWithImpl(Data<T, F> _value, $Res Function(Data<T, F>) _then)
       : super(_value, (v) => _then(v as Data<T, F>));
@@ -300,22 +271,22 @@ class _$DataCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as T,
+              as BuiltList<T>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
+class _$Data<T, F> implements Data<T, F> {
   const _$Data(this.value);
 
   @override
-  final T value;
+  final BuiltList<T> value;
 
   @override
   String toString() {
-    return 'ListValue<$T, $F>(value: $value)';
+    return 'ListState<$T, $F>(value: $value)';
   }
 
   @override
@@ -323,12 +294,11 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Data<T, F> &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -338,7 +308,7 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
+    TResult Function(BuiltList<T> value) $default, {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function(F err) error,
@@ -349,7 +319,7 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -360,7 +330,7 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -410,26 +380,25 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
   }
 }
 
-abstract class Data<T extends BuiltList<dynamic>, F>
-    implements ListValue<T, F> {
-  const factory Data(T value) = _$Data<T, F>;
+abstract class Data<T, F> implements ListState<T, F> {
+  const factory Data(BuiltList<T> value) = _$Data<T, F>;
 
-  T get value;
+  BuiltList<T> get value;
   @JsonKey(ignore: true)
   $DataCopyWith<T, F, Data<T, F>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoadingCopyWith<T extends BuiltList<dynamic>, F, $Res> {
+abstract class $LoadingCopyWith<T, F, $Res> {
   factory $LoadingCopyWith(
           Loading<T, F> value, $Res Function(Loading<T, F>) then) =
       _$LoadingCopyWithImpl<T, F, $Res>;
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
-    extends _$ListValueCopyWithImpl<T, F, $Res>
+class _$LoadingCopyWithImpl<T, F, $Res>
+    extends _$ListStateCopyWithImpl<T, F, $Res>
     implements $LoadingCopyWith<T, F, $Res> {
   _$LoadingCopyWithImpl(
       Loading<T, F> _value, $Res Function(Loading<T, F>) _then)
@@ -441,12 +410,12 @@ class _$LoadingCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
 
 /// @nodoc
 
-class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
+class _$Loading<T, F> implements Loading<T, F> {
   const _$Loading();
 
   @override
   String toString() {
-    return 'ListValue<$T, $F>.loading()';
+    return 'ListState<$T, $F>.loading()';
   }
 
   @override
@@ -461,7 +430,7 @@ class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
+    TResult Function(BuiltList<T> value) $default, {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function(F err) error,
@@ -472,7 +441,7 @@ class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -483,7 +452,7 @@ class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -533,20 +502,19 @@ class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
   }
 }
 
-abstract class Loading<T extends BuiltList<dynamic>, F>
-    implements ListValue<T, F> {
+abstract class Loading<T, F> implements ListState<T, F> {
   const factory Loading() = _$Loading<T, F>;
 }
 
 /// @nodoc
-abstract class $EmptyCopyWith<T extends BuiltList<dynamic>, F, $Res> {
+abstract class $EmptyCopyWith<T, F, $Res> {
   factory $EmptyCopyWith(Empty<T, F> value, $Res Function(Empty<T, F>) then) =
       _$EmptyCopyWithImpl<T, F, $Res>;
 }
 
 /// @nodoc
-class _$EmptyCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
-    extends _$ListValueCopyWithImpl<T, F, $Res>
+class _$EmptyCopyWithImpl<T, F, $Res>
+    extends _$ListStateCopyWithImpl<T, F, $Res>
     implements $EmptyCopyWith<T, F, $Res> {
   _$EmptyCopyWithImpl(Empty<T, F> _value, $Res Function(Empty<T, F>) _then)
       : super(_value, (v) => _then(v as Empty<T, F>));
@@ -557,12 +525,12 @@ class _$EmptyCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
 
 /// @nodoc
 
-class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
+class _$Empty<T, F> implements Empty<T, F> {
   const _$Empty();
 
   @override
   String toString() {
-    return 'ListValue<$T, $F>.empty()';
+    return 'ListState<$T, $F>.empty()';
   }
 
   @override
@@ -577,7 +545,7 @@ class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
+    TResult Function(BuiltList<T> value) $default, {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function(F err) error,
@@ -588,7 +556,7 @@ class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -599,7 +567,7 @@ class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -649,13 +617,12 @@ class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
   }
 }
 
-abstract class Empty<T extends BuiltList<dynamic>, F>
-    implements ListValue<T, F> {
+abstract class Empty<T, F> implements ListState<T, F> {
   const factory Empty() = _$Empty<T, F>;
 }
 
 /// @nodoc
-abstract class $ErrorDetailsCopyWith<T extends BuiltList<dynamic>, F, $Res> {
+abstract class $ErrorDetailsCopyWith<T, F, $Res> {
   factory $ErrorDetailsCopyWith(
           ErrorDetails<T, F> value, $Res Function(ErrorDetails<T, F>) then) =
       _$ErrorDetailsCopyWithImpl<T, F, $Res>;
@@ -663,8 +630,8 @@ abstract class $ErrorDetailsCopyWith<T extends BuiltList<dynamic>, F, $Res> {
 }
 
 /// @nodoc
-class _$ErrorDetailsCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
-    extends _$ListValueCopyWithImpl<T, F, $Res>
+class _$ErrorDetailsCopyWithImpl<T, F, $Res>
+    extends _$ListStateCopyWithImpl<T, F, $Res>
     implements $ErrorDetailsCopyWith<T, F, $Res> {
   _$ErrorDetailsCopyWithImpl(
       ErrorDetails<T, F> _value, $Res Function(ErrorDetails<T, F>) _then)
@@ -688,8 +655,7 @@ class _$ErrorDetailsCopyWithImpl<T extends BuiltList<dynamic>, F, $Res>
 
 /// @nodoc
 
-class _$ErrorDetails<T extends BuiltList<dynamic>, F>
-    implements ErrorDetails<T, F> {
+class _$ErrorDetails<T, F> implements ErrorDetails<T, F> {
   const _$ErrorDetails(this.err);
 
   @override
@@ -697,7 +663,7 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
 
   @override
   String toString() {
-    return 'ListValue<$T, $F>.error(err: $err)';
+    return 'ListState<$T, $F>.error(err: $err)';
   }
 
   @override
@@ -720,7 +686,7 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(T value) $default, {
+    TResult Function(BuiltList<T> value) $default, {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function(F err) error,
@@ -731,7 +697,7 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -742,7 +708,7 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(T value)? $default, {
+    TResult Function(BuiltList<T> value)? $default, {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function(F err)? error,
@@ -792,8 +758,7 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
   }
 }
 
-abstract class ErrorDetails<T extends BuiltList<dynamic>, F>
-    implements ListValue<T, F> {
+abstract class ErrorDetails<T, F> implements ListState<T, F> {
   const factory ErrorDetails(F err) = _$ErrorDetails<T, F>;
 
   F get err;
