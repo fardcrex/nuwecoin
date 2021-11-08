@@ -14,12 +14,17 @@ class SetCryptosAction {
 
   const SetCryptosAction(this.cryptosState);
 
-  factory SetCryptosAction.fromResult(Result<BuiltList<Crypto>, CryptoFailure> result) {
+  factory SetCryptosAction.fromResult(
+    Result<BuiltList<Crypto>, CryptoFailure> result, {
+    ListValue<BuiltList<Crypto>, CryptoFailure>? prevState,
+  }) {
     return SetCryptosAction(result.when(
       ok: (cryptos) => cryptos.isEmpty ? const ListValue.empty() : ListValue(cryptos),
-      err: (fail) => ListValue.error(fail),
+      err: (fail) => prevState?.mapOrNull(returnState, empty: returnState) ?? ListValue.error(fail),
     ));
   }
+
+  static S returnState<S>(S state) => state;
 }
 
 class ChangeIsReloadAction {

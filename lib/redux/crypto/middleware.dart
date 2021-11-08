@@ -30,7 +30,7 @@ MiddlewareAct<AppState, ReloadCryptosAction> getReloadCryptosMiddleware(GetCrypt
 
     final result = await getCryptos();
 
-    next(SetCryptosAction.fromResult(result));
+    next(SetCryptosAction.fromResult(result, prevState: store.state.cryptosState));
 
     next(const ChangeIsReloadAction.toIsNotReload());
   };

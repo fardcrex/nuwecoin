@@ -19,7 +19,7 @@ class InitPage extends StatelessWidget {
     return StoreConnector<AppState, _ViewModel>(
       // onInit: (store) => store.dispatch(const GetCryptosAction()),
 
-      converter: _ViewModel.fromStore,
+      converter: (store) => _ViewModel.fromStore(store),
       //  converter: (store) => store.state.cryptosState,
       builder: (context, vm) {
         return vm.cryptosState.when(
@@ -54,7 +54,7 @@ class _ViewModel {
     required this.isReload,
   });
 
-  static _ViewModel fromStore(Store<AppState> store) {
+  factory _ViewModel.fromStore(Store<AppState> store) {
     return _ViewModel(
         cryptosState: store.state.cryptosState,
         isReload: store.state.isReload,

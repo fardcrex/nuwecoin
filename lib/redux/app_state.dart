@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nuwecoin/features/crypto/domain/dto/crypto.dart';
 import 'package:nuwecoin/features/crypto/domain/failures.dart';
 
-import 'package:redux/redux.dart';
-
 part 'app_state.freezed.dart';
 
 @freezed
