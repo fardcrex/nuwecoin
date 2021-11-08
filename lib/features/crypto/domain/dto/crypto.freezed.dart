@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'crypto.dart';
 
@@ -39,7 +40,7 @@ class _$CryptoTearOff {
     );
   }
 
-  Crypto fromJson(Map<String, Object> json) {
+  Crypto fromJson(Map<String, Object?> json) {
     return Crypto.fromJson(json);
   }
 }
@@ -213,7 +214,7 @@ class _$_Crypto implements _Crypto {
       @JsonKey(name: 'price_change_24h') this.priceChange_24h});
 
   factory _$_Crypto.fromJson(Map<String, dynamic> json) =>
-      _$_$_CryptoFromJson(json);
+      _$$_CryptoFromJson(json);
 
   @override
   final String name;
@@ -244,38 +245,24 @@ class _$_Crypto implements _Crypto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Crypto &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Crypto &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.currentPrice, currentPrice) ||
-                const DeepCollectionEquality()
-                    .equals(other.currentPrice, currentPrice)) &&
-            (identical(other.logo, logo) ||
-                const DeepCollectionEquality().equals(other.logo, logo)) &&
+                other.currentPrice == currentPrice) &&
+            (identical(other.logo, logo) || other.logo == logo) &&
             (identical(other.totalVolume, totalVolume) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalVolume, totalVolume)) &&
+                other.totalVolume == totalVolume) &&
             (identical(other.high_24h, high_24h) ||
-                const DeepCollectionEquality()
-                    .equals(other.high_24h, high_24h)) &&
-            (identical(other.low_24h, low_24h) ||
-                const DeepCollectionEquality()
-                    .equals(other.low_24h, low_24h)) &&
+                other.high_24h == high_24h) &&
+            (identical(other.low_24h, low_24h) || other.low_24h == low_24h) &&
             (identical(other.priceChange_24h, priceChange_24h) ||
-                const DeepCollectionEquality()
-                    .equals(other.priceChange_24h, priceChange_24h)));
+                other.priceChange_24h == priceChange_24h));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(currentPrice) ^
-      const DeepCollectionEquality().hash(logo) ^
-      const DeepCollectionEquality().hash(totalVolume) ^
-      const DeepCollectionEquality().hash(high_24h) ^
-      const DeepCollectionEquality().hash(low_24h) ^
-      const DeepCollectionEquality().hash(priceChange_24h);
+  int get hashCode => Object.hash(runtimeType, name, currentPrice, logo,
+      totalVolume, high_24h, low_24h, priceChange_24h);
 
   @JsonKey(ignore: true)
   @override
@@ -284,7 +271,7 @@ class _$_Crypto implements _Crypto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_CryptoToJson(this);
+    return _$$_CryptoToJson(this);
   }
 }
 
@@ -301,25 +288,25 @@ abstract class _Crypto implements Crypto {
   factory _Crypto.fromJson(Map<String, dynamic> json) = _$_Crypto.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(name: 'current_price')
-  double get currentPrice => throw _privateConstructorUsedError;
+  double get currentPrice;
   @override
   @JsonKey(name: 'image')
-  String get logo => throw _privateConstructorUsedError;
+  String get logo;
   @override
   @JsonKey(name: 'total_volume')
-  double? get totalVolume => throw _privateConstructorUsedError;
+  double? get totalVolume;
   @override
   @JsonKey(name: 'high_24h')
-  double? get high_24h => throw _privateConstructorUsedError;
+  double? get high_24h;
   @override
   @JsonKey(name: 'low_24h')
-  double? get low_24h => throw _privateConstructorUsedError;
+  double? get low_24h;
   @override
   @JsonKey(name: 'price_change_24h')
-  double? get priceChange_24h => throw _privateConstructorUsedError;
+  double? get priceChange_24h;
   @override
   @JsonKey(ignore: true)
   _$CryptoCopyWith<_Crypto> get copyWith => throw _privateConstructorUsedError;

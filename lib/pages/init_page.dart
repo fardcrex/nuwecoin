@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:nuwecoin/features/crypto/domain/dto/crypto.dart';
@@ -19,7 +18,7 @@ class InitPage extends StatelessWidget {
     return StoreConnector<AppState, _ViewModel>(
       // onInit: (store) => store.dispatch(const GetCryptosAction()),
 
-      converter: _ViewModel.fromStore,
+      converter: (store) => _ViewModel.fromStore(store),
       //  converter: (store) => store.state.cryptosState,
       builder: (context, vm) {
         return vm.cryptosState.when(
@@ -45,7 +44,7 @@ class InitPage extends StatelessWidget {
 }
 
 class _ViewModel {
-  final ListValue<BuiltList<Crypto>, CryptoFailure> cryptosState;
+  final ListState<Crypto, CryptoFailure> cryptosState;
   final bool isReload;
   final Function() onReload;
   const _ViewModel({
@@ -54,10 +53,10 @@ class _ViewModel {
     required this.isReload,
   });
 
-  static _ViewModel fromStore(Store<AppState> store) {
+  factory _ViewModel.fromStore(Store<AppState> store) {
     return _ViewModel(
-        cryptosState: store.state.cryptosState,
-        isReload: store.state.isReload,
+        cryptosState: store.state.cryptoState.cryptos,
+        isReload: store.state.cryptoState.isReload,
         onReload: () => store.dispatch(const ReloadCryptosAction()));
   }
 }

@@ -1,21 +1,19 @@
-import 'package:built_collection/built_collection.dart';
-import 'package:nuwecoin/features/crypto/domain/dto/crypto.dart';
-import 'package:nuwecoin/features/crypto/domain/failures.dart';
+import 'package:nuwecoin/redux/crypto/state.dart';
 import 'package:redux/redux.dart';
 
-import '../app_state.dart';
 import 'action.dart';
 
-final cryptosReducers = combineReducers<ListValue<BuiltList<Crypto>, CryptoFailure>>([
-  TypedReducer<ListValue<BuiltList<Crypto>, CryptoFailure>, SetCryptosAction>(_setCryptosReducer),
+final cryptoStateReducers = combineReducers<CriptoState>([
+  TypedReducer<CriptoState, SetCryptosAction>(_setCryptosReducer),
+  TypedReducer<CriptoState, ChangeIsReloadAction>(_changeReloadReducer),
 ]);
-ListValue<BuiltList<Crypto>, CryptoFailure> _setCryptosReducer(state, SetCryptosAction action) {
-  return action.cryptosState;
+CriptoState _setCryptosReducer(CriptoState state, SetCryptosAction action) {
+  return state.copyWith(cryptos: action.cryptosState);
 }
 
-final reloadReducers = combineReducers<bool>([
-  TypedReducer<bool, ChangeIsReloadAction>(_changeReloadReducer),
-]);
-bool _changeReloadReducer(bool state, ChangeIsReloadAction action) {
-  return action.isReload;
+CriptoState _changeReloadReducer(CriptoState state, ChangeIsReloadAction action) {
+  return state.copyWith(
+    isReload: action.isReload,
+    successOrFailureOption: action.successOrFailureOption,
+  );
 }

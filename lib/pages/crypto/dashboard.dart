@@ -25,7 +25,7 @@ class _DashboardPageState extends State<DashboardPage> {
     final input = InputForm(
       textController: controller,
       initialText: '',
-      hintText: 'Buscar stocks o cryptos',
+      hintText: 'Buscar cryptomoneda',
       textInputAction: TextInputAction.search,
       onChanged: (_) => setState(() {}),
     );
@@ -49,7 +49,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       if (!isPortrait) input,
-                      Text('Stock del momento', style: style),
+                      Text('Valor al ${DateTime.now().toString()}', style: style),
                       OutlinedButton(
                         onPressed: !widget.isReload
                             ? () {
