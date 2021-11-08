@@ -7,12 +7,6 @@ import 'package:redux/redux.dart';
 
 part 'app_state.freezed.dart';
 
-typedef MiddlewareAct<State, Action> = dynamic Function(
-  Store<State> store,
-  Action action,
-  dynamic Function(dynamic) next,
-);
-
 @freezed
 abstract class AppState with _$AppState {
   const factory AppState({

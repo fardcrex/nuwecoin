@@ -95,9 +95,7 @@ class _DashboardPageState extends State<DashboardPage> {
       );
     }).toList();
 
-    return stones.isEmpty
-        ? [Stone(height: 5, width: 3, id: 1, child: const Text('No hay resultados'))]
-        : stones;
+    return stones.isEmpty ? [Stone(height: 5, width: 3, id: 1, child: const Text('No hay resultados'))] : stones;
   }
 
   TextStyle get style => const TextStyle(fontSize: 20);

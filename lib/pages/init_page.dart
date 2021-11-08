@@ -17,8 +17,8 @@ class InitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
-      onInit: (store) => store.dispatch(const GetCryptosAction()),
-      //   onDispose: (store) => store.dispatch(const Close$SupeFilesAction()),
+      // onInit: (store) => store.dispatch(const GetCryptosAction()),
+
       converter: _ViewModel.fromStore,
       //  converter: (store) => store.state.cryptosState,
       builder: (context, vm) {
