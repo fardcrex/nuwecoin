@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'app_state.dart';
 
@@ -143,20 +144,16 @@ class _$_AppState implements _AppState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppState &&
+        (other.runtimeType == runtimeType &&
+            other is _AppState &&
             (identical(other.cryptosState, cryptosState) ||
-                const DeepCollectionEquality()
-                    .equals(other.cryptosState, cryptosState)) &&
+                other.cryptosState == cryptosState) &&
             (identical(other.isReload, isReload) ||
-                const DeepCollectionEquality()
-                    .equals(other.isReload, isReload)));
+                other.isReload == isReload));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(cryptosState) ^
-      const DeepCollectionEquality().hash(isReload);
+  int get hashCode => Object.hash(runtimeType, cryptosState, isReload);
 
   @JsonKey(ignore: true)
   @override
@@ -170,10 +167,9 @@ abstract class _AppState implements AppState {
       required bool isReload}) = _$_AppState;
 
   @override
-  ListValue<BuiltList<Crypto>, CryptoFailure> get cryptosState =>
-      throw _privateConstructorUsedError;
+  ListValue<BuiltList<Crypto>, CryptoFailure> get cryptosState;
   @override
-  bool get isReload => throw _privateConstructorUsedError;
+  bool get isReload;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>
@@ -219,6 +215,14 @@ mixin _$ListValue<T extends BuiltList<dynamic>, F> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(T value)? $default, {
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function(F err)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(T value)? $default, {
     TResult Function()? loading,
@@ -233,6 +237,14 @@ mixin _$ListValue<T extends BuiltList<dynamic>, F> {
     required TResult Function(Loading<T, F> value) loading,
     required TResult Function(Empty<T, F> value) empty,
     required TResult Function(ErrorDetails<T, F> value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(Data<T, F> value)? $default, {
+    TResult Function(Loading<T, F> value)? loading,
+    TResult Function(Empty<T, F> value)? empty,
+    TResult Function(ErrorDetails<T, F> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -309,14 +321,14 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Data<T, F> &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is Data<T, F> &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -332,6 +344,17 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
     required TResult Function(F err) error,
   }) {
     return $default(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(T value)? $default, {
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function(F err)? error,
+  }) {
+    return $default?.call(value);
   }
 
   @override
@@ -362,6 +385,17 @@ class _$Data<T extends BuiltList<dynamic>, F> implements Data<T, F> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(Data<T, F> value)? $default, {
+    TResult Function(Loading<T, F> value)? loading,
+    TResult Function(Empty<T, F> value)? empty,
+    TResult Function(ErrorDetails<T, F> value)? error,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(Data<T, F> value)? $default, {
     TResult Function(Loading<T, F> value)? loading,
@@ -380,7 +414,7 @@ abstract class Data<T extends BuiltList<dynamic>, F>
     implements ListValue<T, F> {
   const factory Data(T value) = _$Data<T, F>;
 
-  T get value => throw _privateConstructorUsedError;
+  T get value;
   @JsonKey(ignore: true)
   $DataCopyWith<T, F, Data<T, F>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -417,7 +451,8 @@ class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Loading<T, F>);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Loading<T, F>);
   }
 
   @override
@@ -432,6 +467,17 @@ class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
     required TResult Function(F err) error,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(T value)? $default, {
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function(F err)? error,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -458,6 +504,17 @@ class _$Loading<T extends BuiltList<dynamic>, F> implements Loading<T, F> {
     required TResult Function(ErrorDetails<T, F> value) error,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(Data<T, F> value)? $default, {
+    TResult Function(Loading<T, F> value)? loading,
+    TResult Function(Empty<T, F> value)? empty,
+    TResult Function(ErrorDetails<T, F> value)? error,
+  }) {
+    return loading?.call(this);
   }
 
   @override
@@ -510,7 +567,8 @@ class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Empty<T, F>);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Empty<T, F>);
   }
 
   @override
@@ -525,6 +583,17 @@ class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
     required TResult Function(F err) error,
   }) {
     return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(T value)? $default, {
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function(F err)? error,
+  }) {
+    return empty?.call();
   }
 
   @override
@@ -551,6 +620,17 @@ class _$Empty<T extends BuiltList<dynamic>, F> implements Empty<T, F> {
     required TResult Function(ErrorDetails<T, F> value) error,
   }) {
     return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(Data<T, F> value)? $default, {
+    TResult Function(Loading<T, F> value)? loading,
+    TResult Function(Empty<T, F> value)? empty,
+    TResult Function(ErrorDetails<T, F> value)? error,
+  }) {
+    return empty?.call(this);
   }
 
   @override
@@ -623,14 +703,14 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ErrorDetails<T, F> &&
-            (identical(other.err, err) ||
-                const DeepCollectionEquality().equals(other.err, err)));
+        (other.runtimeType == runtimeType &&
+            other is ErrorDetails<T, F> &&
+            const DeepCollectionEquality().equals(other.err, err));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(err);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(err));
 
   @JsonKey(ignore: true)
   @override
@@ -646,6 +726,17 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
     required TResult Function(F err) error,
   }) {
     return error(err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(T value)? $default, {
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function(F err)? error,
+  }) {
+    return error?.call(err);
   }
 
   @override
@@ -676,6 +767,17 @@ class _$ErrorDetails<T extends BuiltList<dynamic>, F>
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(Data<T, F> value)? $default, {
+    TResult Function(Loading<T, F> value)? loading,
+    TResult Function(Empty<T, F> value)? empty,
+    TResult Function(ErrorDetails<T, F> value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(Data<T, F> value)? $default, {
     TResult Function(Loading<T, F> value)? loading,
@@ -694,7 +796,7 @@ abstract class ErrorDetails<T extends BuiltList<dynamic>, F>
     implements ListValue<T, F> {
   const factory ErrorDetails(F err) = _$ErrorDetails<T, F>;
 
-  F get err => throw _privateConstructorUsedError;
+  F get err;
   @JsonKey(ignore: true)
   $ErrorDetailsCopyWith<T, F, ErrorDetails<T, F>> get copyWith =>
       throw _privateConstructorUsedError;
